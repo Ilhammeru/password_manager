@@ -3,6 +3,13 @@ import StatsWidget from "../components/dashboard/StatsWidget.vue";
 import SalesTrendWidget from "../components/dashboard/SalesTrendWidget.vue";
 import RecentActivityWidget from "../components/dashboard/RecentActivityWidget.vue";
 import ProductOverviewWidget from "../components/dashboard/ProductOverviewWidget.vue";
+import axios from "axios";
+
+const checkButton = async () => {
+    const resp = await axios.post('/check');
+
+    console.log('resp', resp);
+}
 </script>
 
 <template>
@@ -13,5 +20,7 @@ import ProductOverviewWidget from "../components/dashboard/ProductOverviewWidget
             <RecentActivityWidget />
         </div>
         <ProductOverviewWidget />
+
+        <Button label="Check" type="button" @click.prevent="checkButton"></Button>
     </div>
 </template>
