@@ -9,9 +9,16 @@ const router = createRouter({
             component: AppLayout,
             children: [
                 {
-                    path: '/',
-                    name: 'dashboard',
-                    component: () => import('../views/Dashboard.vue')
+                    path: '/app',
+                    name: 'layout',
+                    component: () => import('../components/layout/MainLayout.vue'),
+                    children: [
+                        {
+                            path: 'dashboard',
+                            name: "Dashboard",
+                            component: () => import('../views/Dashboard.vue')
+                        }
+                    ]
                 },
             ]
         },
