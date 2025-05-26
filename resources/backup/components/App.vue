@@ -5,7 +5,7 @@ import AppTopbar from "./layout/AppTopbar.vue";
 
 <template>
     <div
-        class="bg-surface-50 dark:bg-surface-950 min-h-screen p-8 flex flex-col gap-6"
+        class="bg-surface-50 dark:bg-surface-950 min-h-screen p-2 md:p-8 flex flex-col gap-6"
     >
         <router-view></router-view>
     </div>

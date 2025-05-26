@@ -1,51 +1,62 @@
-<script setup>
-const stats = [
-    {
-        title: "Total Orders",
-        icon: "pi-shopping-cart",
-        value: "1,234",
-        subtitle: "Last 7 days",
-    },
-    {
-        title: "Active Users",
-        icon: "pi-users",
-        value: "2,573",
-        subtitle: "Last 7 days",
-    },
-    {
-        title: "Revenue",
-        icon: "pi-dollar",
-        value: "$45,200",
-        subtitle: "Last 7 days",
-    },
-    {
-        title: "Success Rate",
-        icon: "pi-chart-line",
-        value: "95%",
-        subtitle: "Last 7 days",
-    },
-];
-</script>
-
 <template>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div
-            v-for="(stat, index) in stats"
-            :key="index"
-            class="bg-surface-0 dark:bg-surface-900 p-6 rounded-xl border border-surface-200 dark:border-surface-700 flex flex-col gap-2"
-        >
-            <div class="flex items-start gap-2 justify-between">
-                <span class="text-xl font-light leading-tight">{{ stat.title }}</span>
-                <span
-                    class="shrink-0 bg-primary-100 dark:bg-primary-400/20 text-primary rounded-lg w-8 h-8 flex items-center justify-center border border-primary-200 dark:border-primary-400/40"
-                >
-                    <i :class="['pi', stat.icon, 'text-xl!', 'leading-none!']"></i>
-                </span>
+    <div class="col-span-12 lg:col-span-6 xl:col-span-3">
+        <div class="card mb-0">
+            <div class="flex justify-between mb-4">
+                <div>
+                    <span class="block text-muted-color font-medium mb-4">Orders</span>
+                    <div class="text-surface-900 dark:text-surface-0 font-medium text-xl">152</div>
+                </div>
+                <div class="flex items-center justify-center bg-blue-100 dark:bg-blue-400/10 rounded-border" style="width: 2.5rem; height: 2.5rem">
+                    <i class="pi pi-shopping-cart text-blue-500 !text-xl"></i>
+                </div>
             </div>
-            <div class="flex flex-col gap-1 w-full">
-                <div class="text-3xl font-medium leading-tight">{{ stat.value }}</div>
-                <div class="text-surface-600 dark:text-surface-400 text-sm leading-tight">{{ stat.subtitle }}</div>
+            <span class="text-primary font-medium">24 new </span>
+            <span class="text-muted-color">since last visit</span>
+        </div>
+    </div>
+    <div class="col-span-12 lg:col-span-6 xl:col-span-3">
+        <div class="card mb-0">
+            <div class="flex justify-between mb-4">
+                <div>
+                    <span class="block text-muted-color font-medium mb-4">Revenue</span>
+                    <div class="text-surface-900 dark:text-surface-0 font-medium text-xl">$2.100</div>
+                </div>
+                <div class="flex items-center justify-center bg-orange-100 dark:bg-orange-400/10 rounded-border" style="width: 2.5rem; height: 2.5rem">
+                    <i class="pi pi-dollar text-orange-500 !text-xl"></i>
+                </div>
             </div>
+            <span class="text-primary font-medium">%52+ </span>
+            <span class="text-muted-color">since last week</span>
+        </div>
+    </div>
+    <div class="col-span-12 lg:col-span-6 xl:col-span-3">
+        <div class="card mb-0">
+            <div class="flex justify-between mb-4">
+                <div>
+                    <span class="block text-muted-color font-medium mb-4">Customers</span>
+                    <div class="text-surface-900 dark:text-surface-0 font-medium text-xl">28441</div>
+                </div>
+                <div class="flex items-center justify-center bg-cyan-100 dark:bg-cyan-400/10 rounded-border" style="width: 2.5rem; height: 2.5rem">
+                    <i class="pi pi-users text-cyan-500 !text-xl"></i>
+                </div>
+            </div>
+            <span class="text-primary font-medium">520 </span>
+            <span class="text-muted-color">newly registered</span>
+        </div>
+    </div>
+    <div class="col-span-12 lg:col-span-6 xl:col-span-3">
+        <div class="card mb-0">
+            <div class="flex justify-between mb-4">
+                <div>
+                    <span class="block text-muted-color font-medium mb-4">Comments</span>
+                    <div class="text-surface-900 dark:text-surface-0 font-medium text-xl">152 Unread</div>
+                </div>
+                <div class="flex items-center justify-center bg-purple-100 dark:bg-purple-400/10 rounded-border" style="width: 2.5rem; height: 2.5rem">
+                    <i class="pi pi-comment text-purple-500 !text-xl"></i>
+                </div>
+            </div>
+            <span class="text-primary font-medium">85 </span>
+            <span class="text-muted-color">responded</span>
         </div>
     </div>
 </template>

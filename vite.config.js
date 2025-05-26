@@ -21,20 +21,20 @@ export default defineConfig({
             ]
         })
     ],
-    server: {
-        host: '0.0.0.0',
-        port: 5174,
-        hmr: {
-            host: "pwm.orca.test",
-            protocol: 'wss',
-            port: 5175
-        },
-        https: {
-            key: fs.readFileSync(path.resolve(__dirname, './ssl/orca.test.key')),
-            cert: fs.readFileSync(path.resolve(__dirname, './ssl/orca.test.crt')),
-        },
-        watch: {
-            usePolling: true
-        }
-    }
+    // server: {
+    //     host: '0.0.0.0',
+    //     port: 5174,
+    //     hmr: {
+    //         host: "pwm.orca.test",
+    //         protocol: 'wss',
+    //         port: 5175
+    //     },
+    //     https: {
+    //         key: fs.readFileSync(path.resolve(__dirname, './ssl/orca.test.key')),
+    //         cert: fs.readFileSync(path.resolve(__dirname, './ssl/orca.test.crt')),
+    //     },
+    //     watch: {
+    //         usePolling: true
+    //     }
+    // }
 });
