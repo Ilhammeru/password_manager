@@ -20,12 +20,12 @@ export default defineConfig({
                 PrimeVueResolver()
             ]
         })
-    ],
+    ]
     // server: {
     //     host: '0.0.0.0',
     //     port: 5174,
     //     hmr: {
-    //         host: "pwm.orca.test",
+    //         host: "https://charmed-liked-owl.ngrok-free.app",
     //         protocol: 'wss',
     //         port: 5175
     //     },

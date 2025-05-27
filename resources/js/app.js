@@ -12,10 +12,12 @@ import '@/assets/styles.scss';
 
 const app = createApp(App);
 
+import vaultTheme from './theme/vault';
+
 app.use(router);
 app.use(PrimeVue, {
     theme: {
-        preset: Aura,
+        preset: vaultTheme,
         options: {
             darkModeSelector: '.app-dark'
         }
