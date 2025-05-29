@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue';
 import RecordForm from './RecordForm.vue';
+import FolderForm from './FolderForm.vue';
 
 const showRecordForm = ref(false);
 
@@ -18,6 +19,7 @@ const hideRecordForm = () => {
         <div class="h-full m-auto flex items-center justify-center">
 
             <RecordForm :is-show="showRecordForm" @onHide="hideRecordForm" />
+            <FolderForm />
 
             <div class="grid grid-cols-12 gap-0 md:gap-[30px] w-full max-w-full md:max-w-[950px]">
                 <div class="col-span-12 mb-10">
