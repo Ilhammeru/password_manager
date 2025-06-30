@@ -1,0 +1,126 @@
+Project PasswordManager {
+    database_type: "MySql"
+}
+
+Table "cache" {
+    "key" varchar(255) [pk, not null]
+    "value" mediumtext [not null]
+    "expiration" int [not null]
+}
+
+Table "cache_locks" {
+    "key" varchar(255) [pk, not null]
+    "owner" varchar(255) [not null]
+    "expiration" int [not null]
+}
+
+Table "failed_jobs" {
+    "id" bigint [pk, not null, increment]
+    "uuid" varchar(255) [not null]
+    "connection" text [not null]
+    "queue" text [not null]
+    "payload" longtext [not null]
+    "exception" longtext [not null]
+    "failed_at" timestamp [not null, default: `CURRENT_TIMESTAMP`]
+
+    Indexes {
+        uuid [unique, name: "failed_jobs_uuid_unique"]
+    }
+}
+
+Table "job_batches" {
+    "id" varchar(255) [pk, not null]
+    "name" varchar(255) [not null]
+    "total_jobs" int [not null]
+    "pending_jobs" int [not null]
+    "failed_jobs" int [not null]
+    "failed_job_ids" longtext [not null]
+    "options" mediumtext
+    "cancelled_at" int [default: NULL]
+    "created_at" int [not null]
+    "finished_at" int [default: NULL]
+}
+
+Table "jobs" {
+    "id" bigint [pk, not null, increment]
+    "queue" varchar(255) [not null]
+    "payload" longtext [not null]
+    "attempts" tinyint [not null]
+    "reserved_at" int [default: NULL]
+    "available_at" int [not null]
+    "created_at" int [not null]
+
+    Indexes {
+        queue [name: "jobs_queue_index"]
+    }
+}
+
+Table "migrations" {
+    "id" int [pk, not null, increment]
+    "migration" varchar(255) [not null]
+    "batch" int [not null]
+}
+
+Table "password_reset_tokens" {
+    "email" varchar(255) [pk, not null]
+    "token" varchar(255) [not null]
+    "created_at" timestamp [default: NULL]
+}
+
+Table "personal_access_tokens" {
+    "id" bigint [pk, not null, increment]
+    "tokenable_type" varchar(255) [not null]
+    "tokenable_id" bigint [not null]
+    "name" varchar(255) [not null]
+    "token" varchar(64) [not null]
+    "abilities" text
+    "last_used_at" timestamp [default: NULL]
+    "expires_at" timestamp [default: NULL]
+    "created_at" timestamp [default: NULL]
+    "updated_at" timestamp [default: NULL]
+
+    Indexes {
+        token [unique, name: "personal_access_tokens_token_unique"]
+        (tokenable_type, tokenable_id) [name: "personal_access_tokens_tokenable_type_tokenable_id_index"]
+    }
+}
+
+Table "sessions" {
+    "id" varchar(255) [pk, not null]
+    "user_id" bigint [default: NULL]
+    "ip_address" varchar(45) [default: NULL]
+    "user_agent" text
+    "payload" longtext [not null]
+    "last_activity" int [not null]
+
+    Indexes {
+        user_id [name: "sessions_user_id_index"]
+        last_activity [name: "sessions_last_activity_index"]
+    }
+}
+
+Table "users" {
+    "id" bigint [pk, not null, increment]
+    "uid" char(36) [not null]
+    "email" varchar(255) [not null]
+    "email_verified_at" timestamp [default: NULL]
+    "salt" varchar(255) [not null]
+    "password" varchar(255) [not null]
+    "created_at" timestamp [default: NULL]
+    "updated_at" timestamp [default: NULL]
+    "deleted_at" timestamp [default: NULL]
+
+    Indexes {
+        email [unique, name: "users_email_unique"]
+    }
+}
+
+Table "user_vaults" {
+    "id" bigint [pk, not null, increment]
+    "user_id" bigint [ref: > users.id]
+    "title" varchar(255) [not null]
+    "encrypted_data" binary [not null]
+    "iv" binary [not null]
+    "created_at" timestamp [default: NULL]
+    "updated_at" timestamp [default: NULL]   
+}

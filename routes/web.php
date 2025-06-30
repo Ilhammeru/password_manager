@@ -4,15 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Native\Laravel\Dialog;
 use Native\Laravel\Facades\Window;
 
-Route::post('/check', function () {
-    Window::open('secondary');
-
-    return response()->json([
-        'message' => 'Success'
-    ]);
+Route::get('/', function () {
+    return bin2hex(random_bytes(32));
 });
-
-Route::get('/{any?}', function () {
-    return view('welcome');
-})->where('any', '.*');
 

@@ -60,7 +60,7 @@ watch(email, (values) => {
                             type="text"
                             autocomplete="off"
                             placeholder="Type your safe email"
-                            class="w-full mt-2"
+                            class="w-full mt-2 password-input-data"
                             v-model="email"
                             :invalid="errorEmail.length"></InputText>
                         <Message size="small" variant="simple" class="text-red-600 ps-2 pt-1" severity="danger">{{ errorEmail }}</Message>
@@ -122,3 +122,9 @@ watch(email, (values) => {
         </div>
     </div>
 </template>
+
+<style lang="scss">
+.password-input-data input {
+    width: 100%;
+}
+</style>
